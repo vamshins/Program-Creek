@@ -16,9 +16,7 @@
 
 package com.programcreek;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class WordLadder {
@@ -36,25 +34,34 @@ public class WordLadder {
 		 int transformationCount = 0;
 		 String tempStart;
 		 boolean programCompletedFlag = false;
+		 System.out.println(start);
+		 if(dict.size() == 0) {
+			 transformationCount++;
+			 start = end;
+		 }
 		 outerloop1:
-		 for (int j = 0; j < dict.size(); j++) {
+		 while(dict.size() > 0) {
 			 outerloop2:
 			 for (int i = 0; i < start.length(); i++) {
 				 tempStart = start;
 				 for(char c = 'a'; c <= 'z'; c++){
+					 // Replace character at position 'i' with 'c'
 					 char[] tempStartChars = tempStart.toCharArray();
 					 tempStartChars[i] = c;
 					 tempStart = String.valueOf(tempStartChars);
-					 if(dict.contains(tempStart)){
-						 System.out.println(dict.get(j) + " - " + tempStart);
+					 if(tempStart.equals(end)){
+						 System.out.println(end);
+						 programCompletedFlag = true;
+						 transformationCount++;
+						 break outerloop1;
+					 } else if(dict.contains(tempStart)){
+						// If the dictionary contains the string, increase count, remove it from dictionary.
+						 // If it equals end string, then stop the program.
 						 transformationCount++;
 						 start = tempStart;
+						 System.out.println(tempStart);
 						 dict.remove(tempStart);
-						 if(tempStart.equals(end)){
-							 System.out.println(tempStart);
-							 programCompletedFlag = true;
-							 break outerloop1;
-						 }
+						 
 						 break outerloop2;
 					 }					 
 				 }
