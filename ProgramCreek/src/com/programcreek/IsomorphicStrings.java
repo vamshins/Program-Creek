@@ -1,3 +1,12 @@
+/*
+ * Author: Vamshi
+ * Date: 09/14/2015
+ * Program: 3 Isomorphic Strings
+ * Description: Given two strings s and t, determine if they are isomorphic. Two strings are isomorphic
+ * if the characters in s can be replaced to get t.
+ * For example,"egg" and "add" are isomorphic, "foo" and "bar" are not. * 
+ */
+
 package com.programcreek;
 
 import java.util.HashMap;
