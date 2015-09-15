@@ -49,6 +49,7 @@ public class WordLadder {
 					 char[] tempStartChars = tempStart.toCharArray();
 					 tempStartChars[i] = c;
 					 tempStart = String.valueOf(tempStartChars);
+					// If it equals end string, then stop the program.
 					 if(tempStart.equals(end)){
 						 System.out.println(end);
 						 programCompletedFlag = true;
@@ -56,7 +57,6 @@ public class WordLadder {
 						 break outerloop1;
 					 } else if(dict.contains(tempStart)){
 						// If the dictionary contains the string, increase count, remove it from dictionary.
-						 // If it equals end string, then stop the program.
 						 transformationCount++;
 						 start = tempStart;
 						 System.out.println(tempStart);
